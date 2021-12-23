@@ -28,9 +28,9 @@ class ConsoleInterface
     GAMEPOSITION
 
     if @game.won?
-      puts "Поздравляем, вы выиграли!"
+      puts "Поздравляем, вы выиграли!".colorize(:light_blue)
     elsif @game.lost?
-      puts "Вы проиграли, загаданное слово: #{@game.word}"
+      puts "Вы проиграли, загаданное слово: #{@game.word}".colorize(:red)
     end
   end
 
@@ -38,7 +38,7 @@ class ConsoleInterface
   # ошибок, сделанных пользователем на данный момент (число ошибок берем у
   # экземпляра класса Game)
   def figure
-    FIGURES[@game.errors_made]
+    FIGURES[@game.errors_made].colorize(:light_blue )
   end
 
   # Метод, который готовит слово для вывода "на игровом табло".
@@ -73,7 +73,7 @@ class ConsoleInterface
   # Получает букву из пользовательского ввода, приводит её к верхнему регистру
   # и возвращает её
   def get_input
-    print "Введите следующую букву: "
+    print "Введите следующую букву: ".colorize(:light_blue)
     letter = gets[0].upcase
   end
 end
